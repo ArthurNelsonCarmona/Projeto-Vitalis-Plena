@@ -1,0 +1,226 @@
+/*pagina principal*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fundo: #FAF5E9;
+    /*#8C7A5C*/
+    --fundo2: #a38b62 ;
+    --cor-principal: #009B4D;
+    --final: #0a6b24;;
+    --detalhes: #FFCC00;
+    --textW: #FFFFFF;
+}
+
+
+.body{
+    margin: 0;
+    background-color: var(--fundo);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Atualizar o li para img*/
+
+.nav{
+    position: sticky;
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 8px 14px;
+    overflow: hidden;
+    background-color: var(--cor-principal);
+    color: var(--textW);
+}
+
+.van{
+    float: right;
+    display: block;
+    margin-right: 10px;
+    color: var(--textW);
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.van:hover{
+    background-color: var(--detalhes);
+}
+
+.nav li{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.nav button{
+    float: right;
+    display: block;
+    background-color: transparent;
+    color: var(--textW);
+    padding: 16px 28px;
+    text-align: center;
+    border: 1px solid var(--textW);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.nav button:hover{
+    background-color: var(--detalhes);
+}
+
+/*Parte principal de agendamento */
+.main{
+    padding: 44px;
+    background-color: var(--cor-principal);
+}
+.menuPrincipal{
+    background: var(--fundo);
+    padding: 16px;
+    border-radius: 15px;
+    width: 85%;
+}
+
+.menuPrincipal h2{
+    padding: 10px 0 0;
+    padding-bottom: 30px;    
+}
+
+/*Modelo padrão das textbox*/
+.textbox{
+    appearance: none;
+    background-color: #F9F9F9;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    padding: 10px 30px 10px 15px;
+    font-size: 16px;
+    color: #333;
+    width: 44%;
+}
+
+/*Modelo padrão do Botão*/
+.botao{
+    appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 14px 25px 10px 15px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.botao:hover{
+    background-color: var(--detalhes);
+}
+
+/*Carrosel*/
+
+.carrosel1{
+    padding: 80px;
+    background-color: var(--fundo);
+}
+
+.carroselCtn {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carrosel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform  0.4s ease-in-out;
+}
+
+.carrosSlide {
+    min-width: 350px;
+    background-color: var(--textW);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding-bottom: 25px;
+}
+
+.carrosSlide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.carrosSlide h2{
+    font-size: 1.5rem;
+    margin: 20px 20px 10px 20px;
+}
+
+.carrosSlide p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 20px;
+}
+
+.sobre {
+    background-color: var(--fundo2);
+    padding: 20px 20px;
+}
+
+/*Modelo padrão do Rodapé*/
+.ft1 {
+    background-color: var(--final);
+    padding: 30px;
+    display: flex;
+    gap: 730px;
+    justify-items: center;
+
+}
+.fd img{
+    height: auto;
+    width: 32px;
+}
+/* Pagina de Login*/
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.l_box{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-principal);
+    border-radius: 8px;
+    height: 400px;
+    width: 500px;
+}
+
+.l_box .title{
+    padding-inline: 32px;
+    font-size: 24px;
+    color: var(--textW);
+}
+
+.l_box form{
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 32px;
+}
+
+.l_box input{
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    border:thin solid #999;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}

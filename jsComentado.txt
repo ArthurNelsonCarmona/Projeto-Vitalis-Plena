@@ -1,0 +1,75 @@
+// ==========================================
+// 1. SELEÇÃO DE ELEMENTOS DO DOM
+// ==========================================
+ 
+// Seleciona o elemento "trilho" do carrossel (a div que agrupa todos os slides lado a lado).
+const track = document.querySelector('.carrosel-track');
+ 
+// Pega todos os filhos diretos do trilho (os slides) e os transforma em um Array real do JavaScript.
+// Isso facilita o uso de métodos de array e a contagem de elementos.
+const slides = Array.from(track.children);
+ 
+// Seleciona o botão de voltar (anterior) utilizando o ID 'prev'.
+const prevButton = document.getElementById('prev');
+ 
+// Seleciona o botão de avançar (próximo) utilizando o ID 'next'.
+const nextButton = document.getElementById('next');
+ 
+// Seleciona o elemento pai imediato do trilho (o container visível que possui 'overflow: hidden').
+// Isso é essencial para descobrirmos a largura visível da tela do carrossel.
+const container = track.parentElement;
+ 
+ 
+// ==========================================
+// 2. ESTADO DO CARROSSEL
+// ==========================================
+ 
+// Variável que armazena o índice numérico do slide atual que está aparecendo.
+// Começa em 0, o que significa que o carrossel inicia exibindo o primeiro slide.
+let currentIndex = 0;
+ 
+ 
+// ==========================================
+// 3. FUNÇÕES DE LÓGICA E CÁLCULO
+// ==========================================
+ 
+// Função auxiliar responsável por calcular as dimensões e limites do carrossel dinamicamente.
+function getCarouselMetrics() {
+    // Pega a largura exata do primeiro slide utilizando getBoundingClientRect() (considera largura + bordas/padding).
+    let slideDistance = slides[0].getBoundingClientRect().width;
+    // Se houver mais de um slide, calcula a distância real considerando possíveis margens ou gaps entre eles.
+    // Fazemos isso subtraindo a posição horizontal (offsetLeft) do segundo slide em relação ao primeiro.
+    if (slides.length > 1) {
+        slideDistance = slides[1].offsetLeft - slides[0].offsetLeft;
+    }
+ 
+    // Pega a largura atual da área visível do container pai na tela.
+    const containerWidth = container.getBoundingClientRect().width;
+    // Calcula quantos slides cabem inteiros na tela ao mesmo tempo (arredondando para baixo com Math.floor).
+    const visibleSlides = Math.floor(containerWidth / slideDistance);
+    // Calcula o índice máximo que o carrossel pode alcançar para não sobrar espaço vazio no final.
+    // O Math.max(0, ...) garante que o valor nunca será menor que zero.
+    const maxIndex = Math.max(0, slides.length - visibleSlides);
+ 
+    // Retorna um objeto contendo a distância de deslocamento e o índice máximo permitido.
+    return { slideDistance, maxIndex };
+}
+ 
+// Função principal que atualiza visualmente a posição do carrossel na tela.
+function updateCarousel() {
+    // Se o array de slides estiver vazio, interrompe a execução para evitar erros.
+    if (slides.length === 0) return;
+ 
+    // Pega as métricas atuais chamando a função auxiliar.
+    const { slideDistance, maxIndex } = getCarouselMetrics();
+ 
+    // Verificação de segurança: se o índice atual for maior que o limite máximo 
+    // (por exemplo, se a tela foi redimensionada e encolheu), força o índice a voltar para o máximo permitido.
+    if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
+    }
+ 
+    // Aplica a propriedade CSS de transformação 'translateX' no trilho para movê-lo horizontalmente.
+    // Multiplica o índice atual pela distância do slide para saber quantos pixels empurrar para a esquerda (negativo).
+    track.style.transform = `translateX(-${currentIndex * slideDistance}px)`;
+}

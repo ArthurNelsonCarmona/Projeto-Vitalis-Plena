@@ -1,0 +1,88 @@
+/*Pagina de Pesquisa*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --fundo: #FAF5E9;
+    --cor-principal: #009B4D;
+    --detalhes: #FFCC00;
+    --textW: #FFFFFF;
+}
+
+.body{
+    margin: 0;
+    background-color: var(--fundo);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Atualizar o li para img*/
+
+.nav{
+    position: sticky;
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 8px 14px;
+    overflow: hidden;
+    background-color: var(--cor-principal);
+    color: var(--textW);
+}
+
+.nav a{
+    float:right;
+    display: block;
+    color: var(--textW);
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    background-color: var(--detalhes);
+}
+
+.nav li{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.tabela{
+    background-color: #f0e5e5;
+    border-radius: 15px;
+}
+
+.tabela h2{
+    padding: 24px;
+    background-color: var(--cor-principal);
+
+}
+
+/*Modelo padrão das textbox*/
+.textbox{
+    appearance: none;
+    background-color: #F9F9F9;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    padding: 10px 30px 10px 15px;
+    font-size: 16px;
+    color: #333;
+    width: 44%;
+}
+
+/*Modelo padrão do Botão*/
+.botao{
+    appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 14px 25px 10px 15px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}

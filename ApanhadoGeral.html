@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome do Hospital/Finalizando</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <nav>
+           <img src="" alt="Hospital Vitalis Plena">
+           <a href="Login.html">Login</a>
+           <a href="home.html #sobre">Quem Somos</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+<!--como que automatiza isso ?-->
+<!--Apanhado de tudo para o paciente rever oque escolheu-->
+            <div>
+                <h2>Agendamento</h2>
+                <img src="" alt="Foto do proficional">
+                <h3>Nome</h3>
+                <p>Descrição</p>
+                <p>Especialidade</p>
+            </div>
+        </section>
+<!--Informações a serem prenchidas pelo paciente, não sei se faço isso aparecer depois ou se ja aparece tudo junto-->
+        <section>
+            <div>
+                <h2>Informações do Paciente</h2>
+<!--Sobre as labels ainda não sei se é melhor ter elas ou so utilizar o Placeholder, o google tem um metodo interessante onde o placeholder nunca realmente somo, pesquisar quando der-->
+                <label>Nome:</label>
+                <input class="textbox" type="text" name="Nome" required placeholder="Nome Completo"><!--ocupar parte de cima sem dividir espaço-->
+                <label>CPF</label>
+                <input class="textbox" type="number" name="cpf" required pattern="\d{3}\.?\d{3}\.?\d{3}\-?\d{2}" placeholder="xxx.xxx.xxx-xx">
+                <label>Data de Nacimento</label>
+                <input class="textbox" type="date" name="data" required>
+                <label>Telefone</label>
+                <input class="textbox" type="tel" name="telefone" required placeholder="(xx) xxxx-xxxx">
+<!--pensar como fazer este aqui so aparecer CASO nao possuir conta/não estiver logado-->
+
+                <label>E-mail</label>
+                <input class="textbox" type="email" name="email" required placeholder="@Email.com">
+                <label>Senha</label>
+                <input class="textbox" type="password" name="senha" required placeholder="Crie uma senha">
+                <button type="button">Enviar</button>
+<!--com isso resumo de todas as informações pode ser dada ao paciente,a ordem de algumas coisas aqui esta sujeita a mudança-->
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <a>Contato</a>
+        <a>Duvidas Frequentes</a>
+        <a>Redes Sociais</a> 
+        <a>SAC</a>  
+
+        <img src="" alt="WhatsApp">
+        <img src="" alt="Facebook">
+        <img src="" alt="Instagram">
+    </footer>
+
+</body>
+</html>
