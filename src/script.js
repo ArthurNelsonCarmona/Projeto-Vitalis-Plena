@@ -68,3 +68,23 @@ window.addEventListener('resize', updateCarousel);
 
 
 updateCarousel();
+
+
+const campoCPF = document.querySelector("")
+const formulario = document.querySelector("")
+const mensagemErro = document.querySelector("")
+
+campoCPF.addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '');
+    v = v.replace(/(\d{3}) (\d)/, '$1.$2');
+    v = v.replace(/(\d{3}) (\d)/, '$1.$2');
+    v = v.replace(/(\d{3}) (\d{1,2})$/, '$1-$2');
+    e.target.value  = v;
+});
+
+formulario.addEventListener('submit', function(evento) {
+    if (!validarCPF(campoCPF.value)) {
+        evento.preventDefault();
+        mensagemErro.textContent = 'CPF inválido! verifique os números.';
+    }
+})
